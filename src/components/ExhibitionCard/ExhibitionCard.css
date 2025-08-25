@@ -1,7 +1,7 @@
 .exhibition-card {
   background: linear-gradient(145deg, rgba(255, 237, 213, 0.9) 0%, rgba(254, 215, 170, 0.85) 30%, rgba(253, 186, 116, 0.8) 70%, rgba(251, 146, 60, 0.9) 100%);
-  border-radius: 20px;
-  box-shadow: 0 12px 30px rgba(251, 146, 60, 0.12), 0 4px 12px rgba(249, 115, 22, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 8px 21px rgba(251, 146, 60, 0.12), 0 3px 8px rgba(249, 115, 22, 0.08);
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -10,12 +10,12 @@
   flex-direction: column;
   position: relative;
   border: 1px solid rgba(249, 115, 22, 0.2);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(7px);
 }
 
 .exhibition-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(79, 70, 229, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 11px 28px rgba(0, 0, 0, 0.12), 0 4px 11px rgba(79, 70, 229, 0.1);
 }
 
 .exhibition-card::before {
@@ -37,35 +37,35 @@
 
 .card-image {
   width: 100%;
-  height: 450px;
+  height: 315px;
   overflow: hidden;
   flex-shrink: 0;
 }
 
 .card-content {
-  padding: 2.5rem;
+  padding: 1.75rem;
   flex: 1;
   display: flex;
   flex-direction: column;
   background: linear-gradient(135deg, rgba(255, 253, 248, 0.95) 0%, rgba(254, 249, 235, 0.9) 50%, rgba(253, 246, 220, 0.85) 100%);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
   border-top: 1px solid rgba(249, 115, 22, 0.08);
   min-width: 0; /* 確保flexbox子元素可以收縮 */
   overflow-wrap: break-word;
 }
 
 .card-header {
-  margin-bottom: 1rem;
+  margin-bottom: 0.7rem;
   flex-shrink: 0;
 }
 
 .card-title {
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: #333;
-  margin: 0 0 0.8rem 0;
+  margin: 0 0 0.56rem 0;
   line-height: 1.4;
-  min-height: 5.2rem;
+  min-height: 3.64rem;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -80,76 +80,76 @@
 .card-category.category-藝術與文化 {
   background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   color: white;
-  padding: 0.8rem 1.6rem;
-  border-radius: 25px;
-  font-size: 1.2rem;
+  padding: 0.56rem 1.12rem;
+  border-radius: 18px;
+  font-size: 0.84rem;
   font-weight: 600;
   display: inline-block;
-  margin-bottom: 0.8rem;
-  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  margin-bottom: 0.56rem;
+  box-shadow: 0 3px 11px rgba(139, 92, 246, 0.3);
 }
 
 /* 科技與設計 - 藍色 */
 .card-category.category-科技與設計 {
   background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   color: white;
-  padding: 0.8rem 1.6rem;
-  border-radius: 25px;
-  font-size: 1.2rem;
+  padding: 0.56rem 1.12rem;
+  border-radius: 18px;
+  font-size: 0.84rem;
   font-weight: 600;
   display: inline-block;
-  margin-bottom: 0.8rem;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  margin-bottom: 0.56rem;
+  box-shadow: 0 3px 11px rgba(59, 130, 246, 0.3);
 }
 
 /* 自然 - 綠色 */
 .card-category.category-自然 {
   background: linear-gradient(135deg, #10b981 0%, #047857 100%);
   color: white;
-  padding: 0.8rem 1.6rem;
-  border-radius: 25px;
-  font-size: 1.2rem;
+  padding: 0.56rem 1.12rem;
+  border-radius: 18px;
+  font-size: 0.84rem;
   font-weight: 600;
   display: inline-block;
-  margin-bottom: 0.8rem;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  margin-bottom: 0.56rem;
+  box-shadow: 0 3px 11px rgba(16, 185, 129, 0.3);
 }
 
 /* 其他 - 橘色 */
 .card-category.category-其他 {
   background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
   color: white;
-  padding: 0.8rem 1.6rem;
-  border-radius: 25px;
-  font-size: 1.2rem;
+  padding: 0.56rem 1.12rem;
+  border-radius: 18px;
+  font-size: 0.84rem;
   font-weight: 600;
   display: inline-block;
-  margin-bottom: 0.8rem;
-  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+  margin-bottom: 0.56rem;
+  box-shadow: 0 3px 11px rgba(249, 115, 22, 0.3);
 }
 
 /* 默認樣式 */
 .card-category {
   background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
   color: white;
-  padding: 0.8rem 1.6rem;
-  border-radius: 25px;
-  font-size: 1.2rem;
+  padding: 0.56rem 1.12rem;
+  border-radius: 18px;
+  font-size: 0.84rem;
   font-weight: 600;
   display: inline-block;
-  margin-bottom: 0.8rem;
-  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.2);
+  margin-bottom: 0.56rem;
+  box-shadow: 0 3px 11px rgba(79, 70, 229, 0.2);
 }
 
 .card-details {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.05rem;
   flex-shrink: 0;
-  min-height: 7.5rem;
+  min-height: 5.25rem;
 }
 
 .card-details p {
-  margin: 0.6rem 0;
-  font-size: 1.3rem;
+  margin: 0.42rem 0;
+  font-size: 0.91rem;
   color: #666;
   line-height: 1.6;
   font-weight: 500;
@@ -159,12 +159,12 @@
 
 .card-introduction-container {
   flex: 1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.05rem;
 }
 
 .card-introduction {
   color: #666;
-  font-size: 1.3rem;
+  font-size: 0.91rem;
   line-height: 1.7;
   margin: 0;
   display: -webkit-box;
@@ -185,23 +185,23 @@
   display: block;
   background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
   color: white;
-  padding: 1.4rem 2.5rem;
+  padding: 0.98rem 1.75rem;
   border: none;
-  border-radius: 15px;
-  font-size: 1.4rem;
+  border-radius: 11px;
+  font-size: 0.98rem;
   font-weight: 600;
   transition: all 0.3s ease;
   width: 100%;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.2);
+  box-shadow: 0 3px 11px rgba(79, 70, 229, 0.2);
   letter-spacing: 0.01em;
   cursor: pointer;
   font-family: inherit;
 }
 
 .view-details-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.3);
   background: linear-gradient(135deg, #3730a3 0%, #6b21a8 100%);
 }
 

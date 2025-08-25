@@ -1,0 +1,346 @@
+.exhibition-card {
+  background: linear-gradient(145deg, rgba(255, 237, 213, 0.9) 0%, rgba(254, 215, 170, 0.85) 30%, rgba(253, 186, 116, 0.8) 70%, rgba(251, 146, 60, 0.9) 100%);
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(251, 146, 60, 0.12), 0 4px 12px rgba(249, 115, 22, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.exhibition-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(79, 70, 229, 0.1);
+}
+
+.exhibition-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.02) 0%, rgba(124, 58, 237, 0.02) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.exhibition-card:hover::before {
+  opacity: 1;
+}
+
+.card-image {
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.card-content {
+  padding: 2.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.95) 0%, rgba(254, 249, 235, 0.9) 50%, rgba(253, 246, 220, 0.85) 100%);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(249, 115, 22, 0.08);
+  min-width: 0; /* 確保flexbox子元素可以收縮 */
+  overflow-wrap: break-word;
+}
+
+.card-header {
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+.card-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 0.8rem 0;
+  line-height: 1.4;
+  min-height: 5.2rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  letter-spacing: -0.01em;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+
+/* 藝術與文化 - 紫色 */
+.card-category.category-藝術與文化 {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+/* 科技與設計 - 藍色 */
+.card-category.category-科技與設計 {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* 自然 - 綠色 */
+.card-category.category-自然 {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+/* 其他 - 橘色 */
+.card-category.category-其他 {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+}
+
+/* 默認樣式 */
+.card-category {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.2);
+}
+
+.card-details {
+  margin-bottom: 1.5rem;
+  flex-shrink: 0;
+  min-height: 7.5rem;
+}
+
+.card-details p {
+  margin: 0.6rem 0;
+  font-size: 1.3rem;
+  color: #666;
+  line-height: 1.6;
+  font-weight: 500;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.card-introduction-container {
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+.card-introduction {
+  color: #666;
+  font-size: 1.3rem;
+  line-height: 1.7;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: 400;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.card-footer {
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.view-details-btn {
+  display: block;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  color: white;
+  padding: 1.4rem 2.5rem;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.2);
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.view-details-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+  background: linear-gradient(135deg, #3730a3 0%, #6b21a8 100%);
+}
+
+
+@media (max-width: 1200px) {
+  .card-image {
+    height: 350px;
+  }
+  
+  .card-content {
+    padding: 2rem;
+  }
+  
+  .card-title {
+    font-size: 1.8rem;
+  }
+  
+  .card-details p {
+    font-size: 1.2rem;
+  }
+  
+  .card-introduction {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 968px) {
+  .card-image {
+    height: 300px;
+  }
+  
+  .card-content {
+    padding: 1.8rem;
+  }
+  
+  .card-title {
+    font-size: 1.6rem;
+    min-height: auto;
+    line-height: 1.4;
+  }
+  
+  .card-details {
+    min-height: auto;
+    margin-bottom: 1.2rem;
+  }
+  
+  .card-details p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  
+  .card-introduction {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .view-details-btn {
+    padding: 1.2rem 2rem;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-image {
+    height: 250px;
+  }
+  
+  .card-content {
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.4rem;
+    min-height: auto;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+  
+  .card-details {
+    min-height: auto;
+  }
+  
+  .card-details p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0.5rem 0;
+  }
+  
+  .card-introduction {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .view-details-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-image {
+    height: 200px;
+  }
+  
+  .card-content {
+    padding: 1.2rem;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    min-height: auto;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+  }
+  
+  .card-category {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .card-details {
+    min-height: auto;
+    margin-bottom: 1rem;
+  }
+  
+  .card-details p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0.4rem 0;
+  }
+  
+  .card-introduction {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .view-details-btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+  }
+}

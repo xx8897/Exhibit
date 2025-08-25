@@ -1,0 +1,108 @@
+.category-page {
+  min-height: 100vh;
+}
+
+.category-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.category-content h1 {
+  font-size: 4.8rem;
+  margin-bottom: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.category-content p {
+  font-size: 1.8rem;
+  opacity: 0.95;
+  margin: 0;
+  font-weight: 400;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.main-content {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e8eaf6 25%, #e1f5fe 50%, #e0f2f1 75%, #f9fbe7 100%);
+  padding: 3rem 0;
+  position: relative;
+}
+
+.container {
+  max-width: 2300px;
+  margin: 0 auto;
+  padding: 0 6rem;
+}
+
+.exhibitions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  margin-top: 3rem;
+  max-width: calc(100% - 6rem);
+  margin: 3rem auto 0;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  max-width: calc(100% - 6rem);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.no-results p {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .category-content h1 {
+    font-size: 2.2rem;
+  }
+  
+  .category-content p {
+    font-size: 1.1rem;
+  }
+  
+  .exhibitions-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.main-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(79, 70, 229, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(236, 72, 153, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .category-header {
+    padding: 2rem 0;
+  }
+  
+  .main-content {
+    padding: 2rem 0;
+  }
+}

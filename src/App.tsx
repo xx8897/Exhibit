@@ -1,25 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header/Header';
+import HomePage from './pages/HomePage/HomePage';
+import ExhibitionDetail from './pages/ExhibitionDetail/ExhibitionDetail';
+import CategoryPage from './pages/CategoryPage/CategoryPage';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/category/:category" element={<CategoryPage />} />
+            <Route path="/exhibition/:id" element={<ExhibitionDetail />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 

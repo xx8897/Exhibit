@@ -1,0 +1,131 @@
+.map-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.map-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.map-header h3 {
+  margin: 0 0 0.8rem 0;
+  font-size: 2rem;
+  color: #333;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.address {
+  margin: 0;
+  color: #666;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.map-placeholder {
+  padding: 4rem 3rem;
+  text-align: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 2px dashed #dee2e6;
+  margin: 2rem;
+  border-radius: 15px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-icon {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+
+.map-placeholder p {
+  color: #666;
+  margin: 0.8rem 0;
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+.venue-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.open-maps-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 1.2rem 2.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.open-maps-btn:hover {
+  background: #218838;
+}
+
+.location-info {
+  padding: 1.5rem;
+  background: #f8f9fa;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 0.75rem;
+  align-items: flex-start;
+}
+
+.info-row:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  font-weight: 700;
+  color: #333;
+  min-width: 80px;
+  flex-shrink: 0;
+  font-size: 1.6rem;
+}
+
+.value {
+  color: #333;
+  flex: 1;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .map-placeholder {
+    padding: 2rem 1rem;
+  }
+  
+  .map-icon {
+    font-size: 3rem;
+  }
+  
+  .location-info {
+    padding: 1rem;
+  }
+  
+  .info-row {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .label {
+    min-width: auto;
+  }
+}

@@ -1,0 +1,313 @@
+.exhibition-detail-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f3e5f5 0%, #e8eaf6 25%, #e1f5fe 50%, #e0f2f1 75%, #f9fbe7 100%);
+  padding: 4rem 0;
+  position: relative;
+}
+
+.exhibition-detail-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(236, 72, 153, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(124, 58, 237, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(79, 70, 229, 0.05) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 2300px;
+  margin: 0 auto;
+  padding: 0 6rem;
+}
+
+.breadcrumb {
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.breadcrumb a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.exhibition-detail {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(79, 70, 229, 0.1);
+  overflow: hidden;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.detail-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding: 4rem;
+}
+
+.detail-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.title-section {
+  margin-bottom: 1.5rem;
+}
+
+.title-section h1 {
+  font-size: 4rem;
+  color: #333;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.category-section {
+  margin-bottom: 2rem;
+}
+
+.category-section .category-badge {
+  display: inline-block;
+}
+
+/* 分類標籤基礎樣式 */
+.category-badge {
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* 藝術與文化 - 紫色 */
+.category-badge.category-藝術與文化 {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+/* 科技與設計 - 藍色 */
+.category-badge.category-科技與設計 {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* 自然 - 綠色 */
+.category-badge.category-自然 {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+/* 其他 - 橘色 */
+.category-badge.category-其他 {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+}
+
+/* 默認樣式 */
+.category-badge:not([class*="category-"]) {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.info-item h3 {
+  font-size: 1.4rem;
+  color: #666;
+  margin: 0 0 0.8rem 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.info-item p {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.map-btn,
+.website-btn,
+.ticket-btn {
+  padding: 1.2rem 2.5rem;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.map-btn {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  color: white;
+}
+
+.map-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+}
+
+.website-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+}
+
+.website-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.ticket-btn {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: white;
+}
+
+.ticket-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.3);
+}
+
+.detail-content {
+  padding: 0 3rem 3rem 3rem;
+}
+
+.introduction-section h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.introduction-section p {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  color: #555;
+  margin: 0;
+  font-weight: 400;
+}
+
+.back-to-list {
+  text-align: center;
+}
+
+.back-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.2rem 3rem;
+  text-decoration: none;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.not-found {
+  text-align: center;
+  padding: 4rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.not-found h2 {
+  font-size: 2rem;
+  color: #dc3545;
+  margin-bottom: 1rem;
+}
+
+.not-found p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .detail-header {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .title-section {
+    margin-bottom: 1rem;
+  }
+  
+  .title-section h1 {
+    font-size: 2rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .detail-content {
+    padding: 0 2rem 2rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-header {
+    padding: 1rem;
+  }
+  
+  .detail-content {
+    padding: 0 1rem 1rem 1rem;
+  }
+  
+  .title-section h1 {
+    font-size: 1.5rem;
+  }
+}

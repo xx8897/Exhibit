@@ -1,0 +1,222 @@
+.filter-bar {
+  background: linear-gradient(135deg, rgba(219, 234, 254, 0.9) 0%, rgba(191, 219, 254, 0.85) 30%, rgba(147, 197, 253, 0.8) 70%, rgba(96, 165, 250, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15), 0 5px 15px rgba(96, 165, 250, 0.1);
+  margin-bottom: 5rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  position: relative;
+  max-width: calc(100% - 6rem);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filter-section {
+  margin-bottom: 1.5rem;
+}
+
+.filter-section:last-child {
+  margin-bottom: 0;
+}
+
+.filter-section h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.8rem;
+  color: #333;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filter-btn {
+  background: white;
+  border: 2px solid rgba(148, 163, 184, 0.2);
+  color: #475569;
+  padding: 1.2rem 2.4rem;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 篩選按鈕懸停 - 藝術與文化 */
+.filter-btn[data-category="藝術與文化"]:hover {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+}
+
+/* 篩選按鈕懸停 - 科技與設計 */
+.filter-btn[data-category="科技與設計"]:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+}
+
+/* 篩選按鈕懸停 - 自然 */
+.filter-btn[data-category="自然"]:hover {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+/* 篩選按鈕懸停 - 其他 */
+.filter-btn[data-category="其他"]:hover {
+  background: rgba(249, 115, 22, 0.1);
+  border-color: rgba(249, 115, 22, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.15);
+  color: #f97316;
+}
+
+/* 默認懸停樣式 */
+.filter-btn:hover {
+  background: rgba(79, 70, 229, 0.05);
+  border-color: rgba(79, 70, 229, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.15);
+  color: #4f46e5;
+}
+
+/* 篩選按鈕 - 藝術與文化 */
+.filter-btn.active[data-category="藝術與文化"] {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+/* 篩選按鈕 - 科技與設計 */
+.filter-btn.active[data-category="科技與設計"] {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* 篩選按鈕 - 自然 */
+.filter-btn.active[data-category="自然"] {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+/* 篩選按鈕 - 其他 */
+.filter-btn.active[data-category="其他"] {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+}
+
+/* 默認活躍按鈕樣式 */
+.filter-btn.active {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+}
+
+/* 地區篩選按鈕 - 北部 */
+.filter-btn.active[data-region="北部"] {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}
+
+/* 地區篩選按鈕 - 中部 */
+.filter-btn.active[data-region="中部"] {
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);
+}
+
+/* 地區篩選按鈕 - 南部 */
+.filter-btn.active[data-region="南部"] {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+/* 地區篩選按鈕 - 東部 */
+.filter-btn.active[data-region="東部"] {
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+/* 地區篩選按鈕懸停 - 北部 */
+.filter-btn[data-region="北部"]:hover {
+  background: rgba(6, 182, 212, 0.1);
+  border-color: rgba(6, 182, 212, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.15);
+  color: #06b6d4;
+}
+
+/* 地區篩選按鈕懸停 - 中部 */
+.filter-btn[data-region="中部"]:hover {
+  background: rgba(234, 179, 8, 0.1);
+  border-color: rgba(234, 179, 8, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(234, 179, 8, 0.15);
+  color: #eab308;
+}
+
+/* 地區篩選按鈕懸停 - 南部 */
+.filter-btn[data-region="南部"]:hover {
+  background: rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.15);
+  color: #dc2626;
+}
+
+/* 地區篩選按鈕懸停 - 東部 */
+.filter-btn[data-region="東部"]:hover {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.15);
+  color: #7c3aed;
+}
+
+.filter-btn.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+}
+
+
+@media (max-width: 768px) {
+  .filter-bar {
+    padding: 1rem;
+  }
+  
+  .filter-options {
+    gap: 0.3rem;
+  }
+  
+  .filter-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}

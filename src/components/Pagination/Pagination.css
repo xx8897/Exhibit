@@ -1,0 +1,116 @@
+.pagination-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.pagination-info {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pagination-btn {
+  background: white;
+  border: 2px solid rgba(148, 163, 184, 0.3);
+  color: #475569;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-btn:hover:not(.disabled) {
+  background: rgba(79, 70, 229, 0.1);
+  border-color: rgba(79, 70, 229, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+  color: #4f46e5;
+}
+
+.pagination-btn.active {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  transform: translateY(-1px);
+}
+
+.pagination-btn.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+}
+
+.pagination-btn.disabled {
+  background: #f8f9fa;
+  border-color: rgba(148, 163, 184, 0.2);
+  color: #cbd5e1;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.pagination-ellipsis {
+  color: #94a3b8;
+  font-weight: 600;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .pagination-container {
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .pagination-info {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  
+  .pagination-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+    min-width: 40px;
+  }
+  
+  .pagination-controls {
+    gap: 0.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination-btn {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.75rem;
+    min-width: 36px;
+  }
+  
+  .pagination-controls {
+    gap: 0.2rem;
+  }
+  
+  .pagination-info {
+    font-size: 0.75rem;
+  }
+}

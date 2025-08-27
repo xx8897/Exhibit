@@ -5,12 +5,15 @@
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
-  height: 100%;
+  height: 450px; /* 增加高度確保場館信息完整顯示 */
   display: flex;
   flex-direction: column;
   position: relative;
   border: 1px solid rgba(249, 115, 22, 0.2);
   backdrop-filter: blur(7px);
+  flex: 0 0 calc(33.333% - 1.2rem); /* 減少間隔，增加寬度 */
+  width: calc(33.333% - 1.2rem);
+  max-width: calc(33.333% - 1.2rem);
 }
 
 .exhibition-card:hover {
@@ -37,13 +40,13 @@
 
 .card-image {
   width: 100%;
-  height: 315px;
+  height: 187px; /* 減少1/3高度：280px * 2/3 ≈ 187px */
   overflow: hidden;
   flex-shrink: 0;
 }
 
 .card-content {
-  padding: 1.75rem;
+  padding: 1.5rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -52,23 +55,36 @@
   border-top: 1px solid rgba(249, 115, 22, 0.08);
   min-width: 0; /* 確保flexbox子元素可以收縮 */
   overflow-wrap: break-word;
+  height: 263px; /* 增加文字區高度確保場館信息顯示 */
 }
 
 .card-header {
   margin-bottom: 0.7rem;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.card-badges {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: flex-start; /* 左對齊 */
+  min-height: 2.5rem; /* 固定標籤區域高度 */
 }
 
 .card-title {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: #333;
-  margin: 0 0 0.56rem 0;
+  margin: 0;
   line-height: 1.4;
-  min-height: 3.64rem;
+  min-height: 4rem; /* 增加高度以容納3行文字 */
+  max-height: 4rem;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 3; /* 允許顯示3行 */
   -webkit-box-orient: vertical;
   letter-spacing: -0.01em;
   word-wrap: break-word;
@@ -76,29 +92,17 @@
 }
 
 
-/* 藝術與文化 - 紫色 */
-.card-category.category-藝術與文化 {
+/* 藝術 - 紫色 */
+.card-category.category-藝術 {
   background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   color: white;
-  padding: 0.56rem 1.12rem;
-  border-radius: 18px;
-  font-size: 0.84rem;
-  font-weight: 600;
-  display: inline-block;
-  margin-bottom: 0.56rem;
   box-shadow: 0 3px 11px rgba(139, 92, 246, 0.3);
 }
 
-/* 科技與設計 - 藍色 */
-.card-category.category-科技與設計 {
+/* 科學教育 - 藍色 */
+.card-category.category-科學教育 {
   background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   color: white;
-  padding: 0.56rem 1.12rem;
-  border-radius: 18px;
-  font-size: 0.84rem;
-  font-weight: 600;
-  display: inline-block;
-  margin-bottom: 0.56rem;
   box-shadow: 0 3px 11px rgba(59, 130, 246, 0.3);
 }
 
@@ -106,12 +110,6 @@
 .card-category.category-自然 {
   background: linear-gradient(135deg, #10b981 0%, #047857 100%);
   color: white;
-  padding: 0.56rem 1.12rem;
-  border-radius: 18px;
-  font-size: 0.84rem;
-  font-weight: 600;
-  display: inline-block;
-  margin-bottom: 0.56rem;
   box-shadow: 0 3px 11px rgba(16, 185, 129, 0.3);
 }
 
@@ -119,32 +117,78 @@
 .card-category.category-其他 {
   background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
   color: white;
-  padding: 0.56rem 1.12rem;
-  border-radius: 18px;
-  font-size: 0.84rem;
-  font-weight: 600;
-  display: inline-block;
-  margin-bottom: 0.56rem;
   box-shadow: 0 3px 11px rgba(249, 115, 22, 0.3);
 }
 
-/* 默認樣式 */
-.card-category {
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+/* 歷史文化 - 粉紅色 */
+.card-category.category-歷史文化 {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
   color: white;
+  box-shadow: 0 3px 11px rgba(236, 72, 153, 0.3);
+}
+
+/* 標籤基礎樣式 - 確保完全相等 */
+.card-category, .card-region {
   padding: 0.56rem 1.12rem;
   border-radius: 18px;
   font-size: 0.84rem;
   font-weight: 600;
-  display: inline-block;
-  margin-bottom: 0.56rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-width: 4rem; /* 確保最小寬度一致 */
+  height: 2rem; /* 固定高度 */
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* 北部 - 青色 */
+.card-region.region-北部 {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  color: white;
+  box-shadow: 0 2px 6px rgba(6, 182, 212, 0.25);
+}
+
+/* 中部 - 黃色 */
+.card-region.region-中部 {
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  color: white;
+  box-shadow: 0 2px 6px rgba(234, 179, 8, 0.25);
+}
+
+/* 南部 - 紅色 */
+.card-region.region-南部 {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: white;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.25);
+}
+
+/* 東部 - 紫色 */
+.card-region.region-東部 {
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  color: white;
+  box-shadow: 0 2px 6px rgba(124, 58, 237, 0.25);
+}
+
+/* 其他區域 - 灰色 */
+.card-region.region-其他 {
+  background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+  color: white;
+  box-shadow: 0 2px 6px rgba(100, 116, 139, 0.25);
+}
+
+/* 默認類別標籤樣式 */
+.card-category:not([class*="category-"]) {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  color: white;
   box-shadow: 0 3px 11px rgba(79, 70, 229, 0.2);
 }
 
 .card-details {
-  margin-bottom: 1.05rem;
+  margin-bottom: 1rem;
   flex-shrink: 0;
-  min-height: 5.25rem;
+  min-height: 4rem; /* 減少最小高度，為其他區域留更多空間 */
 }
 
 .card-details p {
@@ -157,24 +201,7 @@
   hyphens: auto;
 }
 
-.card-introduction-container {
-  flex: 1;
-  margin-bottom: 1.05rem;
-}
-
-.card-introduction {
-  color: #666;
-  font-size: 0.91rem;
-  line-height: 1.7;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-weight: 400;
-  word-wrap: break-word;
-  hyphens: auto;
-}
+/* 移除簡介容器相關CSS */
 
 .card-footer {
   flex-shrink: 0;
@@ -207,8 +234,15 @@
 
 
 @media (max-width: 1200px) {
+  .exhibition-card {
+    flex: 0 0 calc(33.333% - 1rem); /* 增加寬度 */
+    width: calc(33.333% - 1rem);
+    max-width: calc(33.333% - 1rem);
+    height: 650px; /* 平板版固定高度 */
+  }
+  
   .card-image {
-    height: 350px;
+    height: 200px; /* 平板版圖片高度減少1/3：300px * 2/3 = 200px */
   }
   
   .card-content {
@@ -229,8 +263,15 @@
 }
 
 @media (max-width: 968px) {
+  .exhibition-card {
+    flex: 0 0 calc(50% - 0.8rem); /* 增加寬度 */
+    width: calc(50% - 0.8rem);
+    max-width: calc(50% - 0.8rem);
+    height: 600px; /* 小平板版固定高度 */
+  }
+  
   .card-image {
-    height: 300px;
+    height: 187px; /* 小平板版圖片高度減少1/3：280px * 2/3 ≈ 187px */
   }
   
   .card-content {
@@ -265,8 +306,15 @@
 }
 
 @media (max-width: 768px) {
+  .exhibition-card {
+    flex: 0 0 100%; /* 手機版保持100%寬度 */
+    width: 100%;
+    max-width: 100%;
+    height: 550px; /* 手機版固定高度 */
+  }
+  
   .card-image {
-    height: 250px;
+    height: 160px; /* 手機版圖片高度減少1/3：240px * 2/3 = 160px */
   }
   
   .card-content {

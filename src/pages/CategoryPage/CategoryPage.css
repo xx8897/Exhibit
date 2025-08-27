@@ -48,20 +48,54 @@
 
 .no-results {
   text-align: center;
-  padding: 3rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem 3rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #dee2e6 50%, #ced4da 75%, #adb5bd 100%);
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   margin-top: 2rem;
-  max-width: calc(100% - 6rem);
+  width: 100%; /* 與 FilterBar 寬度對齊 */
   margin-left: auto;
   margin-right: auto;
+  height: 180px; /* 增加高度，更舒適的比例 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.no-results::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(45deg, rgba(255, 193, 7, 0.3), rgba(255, 152, 0, 0.2));
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.no-results::after {
+  content: '';
+  position: absolute;
+  bottom: -25px;
+  left: -25px;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, rgba(33, 150, 243, 0.2), rgba(3, 169, 244, 0.15));
+  border-radius: 50%;
+  z-index: 1;
 }
 
 .no-results p {
   font-size: 1.2rem;
-  color: #666;
+  color: #555;
   margin: 0;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -80,6 +114,25 @@
   .exhibitions-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+  
+  .no-results {
+    height: 150px; /* 手機版固定高度 */
+    padding: 1.5rem 2rem;
+  }
+  
+  .no-results::before {
+    width: 60px;
+    height: 60px;
+    top: -20px;
+    right: -20px;
+  }
+  
+  .no-results::after {
+    width: 50px;
+    height: 50px;
+    bottom: -15px;
+    left: -15px;
   }
 }
 

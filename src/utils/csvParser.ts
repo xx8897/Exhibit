@@ -58,10 +58,10 @@ export const mapCategoryToEnum = (category: string): ExhibitionCategory => {
     '當代藝術': ExhibitionCategory.ART,
     '歷史': ExhibitionCategory.HISTORY,
     '地方文史': ExhibitionCategory.HISTORY,
-    '科學': ExhibitionCategory.SCIENCE,
+    '科學': ExhibitionCategory.NATURE,
     '科技': ExhibitionCategory.TECHNOLOGY,
     '文化': ExhibitionCategory.CULTURE,
-    '攝影': ExhibitionCategory.PHOTOGRAPHY,
+    '攝影': ExhibitionCategory.ART,
     '設計': ExhibitionCategory.DESIGN,
     '設計與工藝': ExhibitionCategory.DESIGN,
     '工藝': ExhibitionCategory.DESIGN,
@@ -91,7 +91,7 @@ export const parseCSVToExhibitions = (csvData: CSVExhibition[]): Exhibition[] =>
       address: row.地址.trim(),
       category: mapCategoryToEnum(row.類型 || row.AI分類 || row.整合分類),
       // 可以後續加入的欄位
-      image: `https://via.placeholder.com/400x300?text=${encodeURIComponent(row.展覽名稱)}`,
+      image: 'C', // 使用本地圖片代碼，預設為C
       website: undefined,
       ticketUrl: undefined,
       latitude: undefined,

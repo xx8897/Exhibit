@@ -5,7 +5,7 @@
 .hero-section {
   background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #ec4899 100%);
   color: white;
-  padding: 4.2rem 0;
+  padding: 1.25rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -28,15 +28,15 @@
 }
 
 .hero-content h1 {
-  font-size: 3.85rem;
-  margin-bottom: 1.4rem;
+  font-size: 2.57rem;
+  margin-bottom: 0.93rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   text-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 .hero-content p {
-  font-size: 1.4rem;
+  font-size: 0.93rem;
   opacity: 0.95;
   margin: 0;
   font-weight: 400;
@@ -62,7 +62,7 @@
 /* 輪播主容器 */
 .banner-container {
   position: relative;
-  max-width: calc(100% - 4.2rem); /* 與篩選欄等寬 */
+  width: 75%; /* 縮小寬度以3:4比例顯示 */
   margin: 0 auto 4.2rem auto;
   border-radius: 14px;
   overflow: hidden;
@@ -74,8 +74,7 @@
 .carousel-container {
   position: relative;
   width: 100%;
-  height: 0;
-  padding-bottom: 45%; /* 16:9 比例 (9/16 * 80% ≈ 45%) */
+  height: 581px; /* 再增加10% (528 * 1.1) */
   overflow: hidden;
 }
 
@@ -268,28 +267,70 @@
   letter-spacing: -0.01em;
 }
 
-.exhibitions-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.8rem;
-  max-width: calc(100% - 4.2rem);
+.exhibitions-section .exhibitions-grid {
+  display: flex !important;
+  justify-content: center !important; /* 置中顯示 */
+  width: 100% !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+  flex-wrap: wrap !important;
+  gap: 2.8rem 1.2rem !important; /* 垂直2.8rem，水平1.2rem間隔，讓卡片更寬 */
+}
+
+/* 控制 FilterBar 和展覽網格的寬度 */
+.exhibitions-section {
+  width: 75%;
   margin: 0 auto;
 }
 
 .no-results {
   text-align: center;
-  padding: 3rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  max-width: calc(100% - 6rem);
+  padding: 2rem 3rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #dee2e6 50%, #ced4da 75%, #adb5bd 100%);
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  width: 100%; /* 與 FilterBar 和展覽網格寬度對齊 */
   margin: 0 auto;
+  height: 180px; /* 增加高度，更舒適的比例 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.no-results::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(45deg, rgba(255, 193, 7, 0.3), rgba(255, 152, 0, 0.2));
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.no-results::after {
+  content: '';
+  position: absolute;
+  bottom: -25px;
+  left: -25px;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, rgba(33, 150, 243, 0.2), rgba(3, 169, 244, 0.15));
+  border-radius: 50%;
+  z-index: 1;
 }
 
 .no-results p {
-  font-size: 1.1rem;
-  color: #666;
+  font-size: 1.2rem;
+  color: #555;
   margin: 0;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 1200px) {
@@ -298,9 +339,16 @@
   }
   
   .exhibitions-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-    max-width: calc(100% - 3rem);
+    justify-content: center !important;
+    gap: 2rem 1rem !important;
+  }
+  
+  .banner-container {
+    width: 80%; /* 中等螢幕微調寬度 */
+  }
+  
+  .exhibitions-section {
+    width: 80%; /* 中等螢幕微調寬度 */
   }
 }
 
@@ -310,21 +358,24 @@
   }
   
   .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 2.33rem;
   }
   
   .hero-content p {
-    font-size: 1.4rem;
+    font-size: 0.93rem;
   }
   
   .exhibitions-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-    max-width: calc(100% - 2rem);
+    justify-content: center !important;
+    gap: 2rem 0.8rem !important;
   }
   
   .banner-container {
-    max-width: calc(100% - 2rem);
+    width: 90%; /* 小螢幕增加寬度 */
+  }
+  
+  .exhibitions-section {
+    width: 90%; /* 小螢幕增加寬度 */
   }
   
   .carousel-content h3 {
@@ -342,22 +393,26 @@
   }
   
   .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 1.67rem;
   }
   
   .hero-content p {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
   }
   
   /* 輪播響應式設計 */
   .banner-container {
-    max-width: calc(100% - 2rem);
+    width: 95%; /* 手機版增加寬度 */
     margin: 0 auto 4rem auto;
     border-radius: 15px;
   }
   
+  .exhibitions-section {
+    width: 95%; /* 手機版增加寬度 */
+  }
+  
   .carousel-container {
-    padding-bottom: 56.25%; /* 16:9 比例 */
+    height: 385px; /* 增加10% (350 * 1.1) */
   }
   
   .carousel-content h3 {
@@ -402,9 +457,27 @@
   }
   
   .exhibitions-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    max-width: calc(100% - 1rem);
+    justify-content: center !important;
+    gap: 2rem 0 !important;
+  }
+  
+  .no-results {
+    height: 150px; /* 手機版固定高度 */
+    padding: 1.5rem 2rem;
+  }
+  
+  .no-results::before {
+    width: 60px;
+    height: 60px;
+    top: -20px;
+    right: -20px;
+  }
+  
+  .no-results::after {
+    width: 50px;
+    height: 50px;
+    bottom: -15px;
+    left: -15px;
   }
 }
 
@@ -424,7 +497,7 @@
 
 @media (max-width: 480px) {
   .hero-section {
-    padding: 2rem 0;
+    padding: 1.33rem 0;
   }
   
   .main-content {
@@ -433,13 +506,17 @@
   
   /* 小螢幕輪播優化 */
   .banner-container {
-    max-width: calc(100% - 1rem);
+    width: 98%; /* 極小螢幕幾乎全寬 */
     margin: 0 auto 3rem auto;
     border-radius: 12px;
   }
   
+  .exhibitions-section {
+    width: 98%; /* 極小螢幕幾乎全寬 */
+  }
+  
   .carousel-container {
-    padding-bottom: 60%; /* 稍微調整比例適應小螢幕 */
+    height: 330px; /* 增加10% (300 * 1.1) */
   }
   
   .carousel-content h3 {

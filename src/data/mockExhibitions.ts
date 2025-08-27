@@ -62,7 +62,7 @@ export const mockExhibitions: Exhibition[] = [
     venue: "台北當代藝術館",
     price: "全票150元",
     address: "臺北市大同區長安西路39號",
-    category: ExhibitionCategory.PHOTOGRAPHY,
+    category: ExhibitionCategory.ART,
     image: "https://via.placeholder.com/300x200",
     website: "https://www.mocataipei.org.tw",
     ticketUrl: "https://www.mocataipei.org.tw/tickets",

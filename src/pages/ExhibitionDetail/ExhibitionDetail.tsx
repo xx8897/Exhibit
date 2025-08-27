@@ -1,13 +1,13 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { newExhibitions } from '../../data/newExhibitions';
+import { allExhibitions } from '../../data/allExhibitions';
 import Map from '../../components/Map/Map';
 import AIClassification from '../../components/AIClassification/AIClassification';
 import './ExhibitionDetail.css';
 
 const ExhibitionDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const exhibition = newExhibitions.find(ex => ex.id === id);
+  const exhibition = allExhibitions.find(ex => ex.id === id);
 
   if (!exhibition) {
     return (
@@ -42,7 +42,7 @@ const ExhibitionDetail: React.FC = () => {
           <div className="detail-header">
             <div className="detail-image">
               <img 
-                src={exhibition.image || 'https://via.placeholder.com/600x400'} 
+                src={exhibition.image || `${process.env.PUBLIC_URL}/C.jpg`} 
                 alt={exhibition.name}
               />
             </div>
@@ -50,8 +50,11 @@ const ExhibitionDetail: React.FC = () => {
               <div className="title-section">
                 <h1>{exhibition.name}</h1>
               </div>
-              <div className="category-section">
+              <div className="badge-section">
                 <span className={`category-badge category-${exhibition.category}`}>{exhibition.category}</span>
+                {exhibition.region && (
+                  <span className={`region-badge region-${exhibition.region}`}>{exhibition.region}</span>
+                )}
               </div>
               
               <div className="info-grid">

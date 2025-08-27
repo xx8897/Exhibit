@@ -9,6 +9,7 @@ export interface Exhibition {
   price: string;
   address: string;
   category: string;
+  region?: string;
   image?: string;
   website?: string;
   ticketUrl?: string;
@@ -34,12 +35,12 @@ export enum Region {
 }
 
 export enum ExhibitionCategory {
-  ART = "藝術",
-  HISTORY = "歷史",
-  SCIENCE = "科學",
+  ART = "藝術與文化",
+  TECHNOLOGY = "科技與設計", 
+  NATURE = "自然",
+  OTHER = "其他",
+  // 新增的分類，保持與舊資料相容
   CULTURE = "文化",
-  PHOTOGRAPHY = "攝影",
-  DESIGN = "設計",
-  TECHNOLOGY = "科技",
-  OTHER = "其他"
+  HISTORY = "歷史",
+  DESIGN = "設計"
 }

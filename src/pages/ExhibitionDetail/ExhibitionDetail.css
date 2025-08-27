@@ -27,7 +27,7 @@
 
 .breadcrumb {
   margin-bottom: 2rem;
-  font-size: 1.4rem;
+  font-size: 0.93rem;
   color: #666;
   font-weight: 500;
 }
@@ -71,46 +71,50 @@
 }
 
 .title-section h1 {
-  font-size: 4rem;
+  font-size: 2.67rem;
   color: #333;
   margin: 0;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
-.category-section {
+.badge-section {
   margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.category-section .category-badge {
+.badge-section .category-badge,
+.badge-section .region-badge {
   display: inline-block;
 }
 
 /* 分類標籤基礎樣式 */
 .category-badge {
   color: white;
-  padding: 0.8rem 1.6rem;
+  padding: 0.53rem 1.07rem;
   border-radius: 25px;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   font-weight: 600;
 }
 
-/* 藝術與文化 - 紫色 */
-.category-badge.category-藝術與文化 {
+/* 藝術 - 紫色 */
+.category-badge.category-藝術 {
   background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
 }
 
-/* 科技與設計 - 藍色 */
-.category-badge.category-科技與設計 {
+/* 科學教育 - 藍色 */
+.category-badge.category-科學教育 {
   background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
-/* 自然 - 綠色 */
-.category-badge.category-自然 {
-  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+/* 歷史文化 - 粉紅色 */
+.category-badge.category-歷史文化 {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
 }
 
 /* 其他 - 橘色 */
@@ -125,6 +129,45 @@
   box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
 }
 
+/* 地區標籤樣式 */
+.region-badge {
+  color: white;
+  padding: 0.53rem 1.07rem;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* 北部 - 青色 */
+.region-badge.region-北部 {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}
+
+/* 中部 - 黃色 */
+.region-badge.region-中部 {
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);
+}
+
+/* 南部 - 紅色 */
+.region-badge.region-南部 {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+/* 東部 - 紫色 */
+.region-badge.region-東部 {
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+/* 其他地區 - 灰色 */
+.region-badge.region-其他 {
+  background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+  box-shadow: 0 4px 15px rgba(100, 116, 139, 0.3);
+}
+
 .info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -133,7 +176,7 @@
 }
 
 .info-item h3 {
-  font-size: 1.4rem;
+  font-size: 0.93rem;
   color: #666;
   margin: 0 0 0.8rem 0;
   font-weight: 700;
@@ -141,7 +184,7 @@
 }
 
 .info-item p {
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: #333;
   margin: 0;
   line-height: 1.6;
@@ -157,17 +200,17 @@
 .map-btn,
 .website-btn,
 .ticket-btn {
-  padding: 1.2rem 2.5rem;
+  padding: 0.8rem 1.67rem;
   border: none;
   border-radius: 15px;
-  font-size: 1.4rem;
+  font-size: 0.93rem;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.53rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -206,7 +249,7 @@
 }
 
 .introduction-section h2 {
-  font-size: 2.5rem;
+  font-size: 1.67rem;
   color: #333;
   margin-bottom: 2rem;
   border-bottom: 3px solid #667eea;
@@ -216,7 +259,7 @@
 }
 
 .introduction-section p {
-  font-size: 1.6rem;
+  font-size: 1.07rem;
   line-height: 1.8;
   color: #555;
   margin: 0;
@@ -231,11 +274,11 @@
   display: inline-block;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 1.2rem 3rem;
+  padding: 0.8rem 2rem;
   text-decoration: none;
   border-radius: 15px;
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 0.93rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
@@ -254,13 +297,13 @@
 }
 
 .not-found h2 {
-  font-size: 2rem;
+  font-size: 1.33rem;
   color: #dc3545;
   margin-bottom: 1rem;
 }
 
 .not-found p {
-  font-size: 1.1rem;
+  font-size: 0.73rem;
   color: #666;
   margin-bottom: 2rem;
 }
@@ -281,7 +324,7 @@
   }
   
   .title-section h1 {
-    font-size: 2rem;
+    font-size: 1.33rem;
   }
   
   .info-grid {
@@ -308,6 +351,6 @@
   }
   
   .title-section h1 {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }

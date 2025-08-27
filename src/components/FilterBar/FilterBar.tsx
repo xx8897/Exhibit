@@ -14,8 +14,8 @@ const FilterBar: React.FC<FilterBarProps> = ({
   onCategoryChange,
   onRegionChange
 }) => {
-  const categories = ['藝術與文化', '科技與設計', '自然', '其他'];
-  const regions = ['北部', '中部', '南部', '東部'];
+  const categories = ['藝術', '科學教育', '歷史文化', '其他'];
+  const regions = ['北部', '中部', '南部', '東部', '其他'];
 
   return (
     <div className="filter-bar">

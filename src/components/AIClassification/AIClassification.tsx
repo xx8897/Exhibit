@@ -56,7 +56,7 @@ const AIClassification: React.FC<AIClassificationProps> = ({
           <div className="ai-result">
             <div className="main-category">
               <span className="label">建議分類：</span>
-              <span className="category-badge primary">{aiCategory}</span>
+              <span className={`category-badge primary category-${aiCategory}`}>{aiCategory}</span>
             </div>
           </div>
           

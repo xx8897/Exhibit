@@ -1,15 +1,19 @@
 .filter-bar {
   background: linear-gradient(135deg, rgba(219, 234, 254, 0.9) 0%, rgba(191, 219, 254, 0.85) 30%, rgba(147, 197, 253, 0.8) 70%, rgba(96, 165, 250, 0.9) 100%);
   backdrop-filter: blur(14px);
-  padding: 2.1rem;
+  padding: 2.2rem;
   border-radius: 14px;
   box-shadow: 0 11px 25px rgba(59, 130, 246, 0.15), 0 4px 11px rgba(96, 165, 250, 0.1);
   margin-bottom: 3.5rem;
   border: 1px solid rgba(59, 130, 246, 0.2);
   position: relative;
-  max-width: calc(100% - 4.2rem);
+  width: 100%; /* FilterBar 寬度由父容器控制 */
   margin-left: auto;
   margin-right: auto;
+  height: 264px; /* 增加20% (220 * 1.2) */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 垂直居中內容 */
 }
 
 .filter-section {
@@ -47,8 +51,8 @@
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* 篩選按鈕懸停 - 藝術與文化 */
-.filter-btn[data-category="藝術與文化"]:hover {
+/* 篩選按鈕懸停 - 藝術 */
+.filter-btn[data-category="藝術"]:hover {
   background: rgba(139, 92, 246, 0.1);
   border-color: rgba(139, 92, 246, 0.3);
   transform: translateY(-2px);
@@ -56,8 +60,8 @@
   color: #8b5cf6;
 }
 
-/* 篩選按鈕懸停 - 科技與設計 */
-.filter-btn[data-category="科技與設計"]:hover {
+/* 篩選按鈕懸停 - 科學教育 */
+.filter-btn[data-category="科學教育"]:hover {
   background: rgba(59, 130, 246, 0.1);
   border-color: rgba(59, 130, 246, 0.3);
   transform: translateY(-2px);
@@ -65,13 +69,13 @@
   color: #3b82f6;
 }
 
-/* 篩選按鈕懸停 - 自然 */
-.filter-btn[data-category="自然"]:hover {
-  background: rgba(16, 185, 129, 0.1);
-  border-color: rgba(16, 185, 129, 0.3);
+/* 篩選按鈕懸停 - 歷史文化 */
+.filter-btn[data-category="歷史文化"]:hover {
+  background: rgba(236, 72, 153, 0.1);
+  border-color: rgba(236, 72, 153, 0.3);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
-  color: #10b981;
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.15);
+  color: #ec4899;
 }
 
 /* 篩選按鈕懸停 - 其他 */
@@ -92,28 +96,28 @@
   color: #4f46e5;
 }
 
-/* 篩選按鈕 - 藝術與文化 */
-.filter-btn.active[data-category="藝術與文化"] {
+/* 篩選按鈕 - 藝術 */
+.filter-btn.active[data-category="藝術"] {
   background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   border-color: transparent;
   color: white;
   box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
 }
 
-/* 篩選按鈕 - 科技與設計 */
-.filter-btn.active[data-category="科技與設計"] {
+/* 篩選按鈕 - 科學教育 */
+.filter-btn.active[data-category="科學教育"] {
   background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   border-color: transparent;
   color: white;
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
-/* 篩選按鈕 - 自然 */
-.filter-btn.active[data-category="自然"] {
-  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+/* 篩選按鈕 - 歷史文化 */
+.filter-btn.active[data-category="歷史文化"] {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
   border-color: transparent;
   color: white;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
 }
 
 /* 篩選按鈕 - 其他 */
@@ -208,7 +212,8 @@
 
 @media (max-width: 768px) {
   .filter-bar {
-    padding: 1rem;
+    padding: 1.5rem;
+    height: 211px; /* 增加20% (176 * 1.2) */
   }
   
   .filter-options {
@@ -218,5 +223,12 @@
   .filter-btn {
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-bar {
+    height: 185px; /* 增加20% (154 * 1.2) */
+    padding: 1.2rem;
   }
 }

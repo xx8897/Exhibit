@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Exhibition } from '../../types/Exhibition';
 import ExhibitionImage from '../ExhibitionImage/ExhibitionImage';
 import './ExhibitionCard.css';
@@ -8,43 +9,39 @@ interface ExhibitionCardProps {
 }
 
 const ExhibitionCard: React.FC<ExhibitionCardProps> = ({ exhibition }) => {
+  const navigate = useNavigate();
+  
   const handleCardClick = () => {
-    window.location.href = `/exhibition/${exhibition.id}`;
+    navigate(`/exhibition/${exhibition.id}`);
   };
 
   const handleButtonClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    window.location.href = `/exhibition/${exhibition.id}`;
+    navigate(`/exhibition/${exhibition.id}`);
   };
 
   return (
     <div className="exhibition-card" onClick={handleCardClick}>
       <div className="card-image">
-        <ExhibitionImage 
-          src={exhibition.image || 'https://via.placeholder.com/300x200'} 
+        <img 
+          src={exhibition.image || `${process.env.PUBLIC_URL}/C.jpg`} 
           alt={exhibition.name}
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       </div>
       <div className="card-content">
         <div className="card-header">
           <h3 className="card-title">{exhibition.name}</h3>
-          <span className={`card-category category-${exhibition.category}`}>{exhibition.category}</span>
+          <div className="card-badges">
+            <span className={`card-category category-${exhibition.category}`}>{exhibition.category}</span>
+            {exhibition.region && (
+              <span className={`card-region region-${exhibition.region}`}>{exhibition.region}</span>
+            )}
+          </div>
         </div>
         <div className="card-details">
           <p className="card-period">📅 {exhibition.period}</p>
           <p className="card-venue">📍 {exhibition.venue}</p>
-          <p className="card-price">💰 {exhibition.price}</p>
-        </div>
-        <div className="card-introduction-container">
-          <p className="card-introduction">{exhibition.introduction}</p>
-        </div>
-        <div className="card-footer">
-          <button 
-            className="view-details-btn"
-            onClick={handleButtonClick}
-          >
-            查看詳情
-          </button>
         </div>
       </div>
     </div>

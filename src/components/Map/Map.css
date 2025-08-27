@@ -13,7 +13,7 @@
 
 .map-header h3 {
   margin: 0 0 0.8rem 0;
-  font-size: 2rem;
+  font-size: 1.33rem;
   color: #333;
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -22,7 +22,7 @@
 .address {
   margin: 0;
   color: #666;
-  font-size: 1.3rem;
+  font-size: 0.87rem;
   font-weight: 500;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .map-icon {
-  font-size: 5rem;
+  font-size: 3.33rem;
   margin-bottom: 1.5rem;
   color: #666;
 }
@@ -49,14 +49,14 @@
 .map-placeholder p {
   color: #666;
   margin: 0.8rem 0;
-  font-size: 1.4rem;
+  font-size: 0.93rem;
   line-height: 1.6;
 }
 
 .venue-name {
   font-weight: 600;
   color: #333;
-  font-size: 1.6rem;
+  font-size: 1.07rem;
   margin-bottom: 1rem;
 }
 
@@ -64,11 +64,11 @@
   background: #28a745;
   color: white;
   border: none;
-  padding: 1.2rem 2.5rem;
+  padding: 0.8rem 1.67rem;
   border-radius: 25px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 0.93rem;
   margin-top: 1rem;
   transition: background-color 0.3s ease;
 }
@@ -97,13 +97,13 @@
   color: #333;
   min-width: 80px;
   flex-shrink: 0;
-  font-size: 1.6rem;
+  font-size: 1.07rem;
 }
 
 .value {
   color: #333;
   flex: 1;
-  font-size: 1.6rem;
+  font-size: 1.07rem;
   font-weight: 500;
 }
 
@@ -113,7 +113,7 @@
   }
   
   .map-icon {
-    font-size: 3rem;
+    font-size: 2rem;
   }
   
   .location-info {

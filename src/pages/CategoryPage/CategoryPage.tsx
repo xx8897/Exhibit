@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ExhibitionCard from '../../components/ExhibitionCard/ExhibitionCard';
 import FilterBar from '../../components/FilterBar/FilterBar';
-import { newExhibitions } from '../../data/newExhibitions';
+import { realExhibitions } from '../../data/realExhibitions';
 import { Exhibition } from '../../types/Exhibition';
 import './CategoryPage.css';
 
@@ -20,7 +20,7 @@ const CategoryPage: React.FC = () => {
 
   const getFilteredExhibitions = (): Exhibition[] => {
     const currentCategory = category || selectedCategory;
-    return newExhibitions.filter(exhibition => {
+    return realExhibitions.filter(exhibition => {
       const categoryMatch = exhibition.category === currentCategory;
       
       const regionMap: { [key: string]: string[] } = {

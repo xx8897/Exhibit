@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ExhibitionCard from '../../components/ExhibitionCard/ExhibitionCard';
 import FilterBar from '../../components/FilterBar/FilterBar';
-import { newExhibitions } from '../../data/newExhibitions';
+import Pagination from '../../components/Pagination/Pagination';
+import { allExhibitions } from '../../data/allExhibitions';
 import { Exhibition } from '../../types/Exhibition';
 import './HomePage.css';
 
@@ -11,9 +12,11 @@ const HomePage: React.FC = () => {
   const [selectedRegion, setSelectedRegion] = useState('');
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(9); // 每頁顯示9個展覽
 
   // 前五個展覽用於輪播
-  const carouselExhibitions = newExhibitions.slice(0, 5);
+  const carouselExhibitions = allExhibitions.slice(0, 5);
   
 
   // 自動播放功能 - 每15秒切換
@@ -50,24 +53,31 @@ const HomePage: React.FC = () => {
   };
 
   const getFilteredExhibitions = (): Exhibition[] => {
-    return newExhibitions.filter(exhibition => {
+    return allExhibitions.filter(exhibition => {
       const categoryMatch = !selectedCategory || exhibition.category === selectedCategory;
-      
-      const regionMap: { [key: string]: string[] } = {
-        '北部': ['台北', '新北', '桃園', '新竹', '基隆', '宜蘭'],
-        '中部': ['台中', '彰化', '南投', '雲林', '苗栗'],
-        '南部': ['高雄', '台南', '屏東', '嘉義'],
-        '東部': ['花蓮', '台東']
-      };
-      
-      const regionMatch = !selectedRegion || 
-        regionMap[selectedRegion]?.some(city => exhibition.address.includes(city));
+      const regionMatch = !selectedRegion || exhibition.region === selectedRegion;
       
       return categoryMatch && regionMatch;
     });
   };
 
   const filteredExhibitions = getFilteredExhibitions();
+  
+  // 分頁計算
+  const totalPages = Math.ceil(filteredExhibitions.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentExhibitions = filteredExhibitions.slice(startIndex, endIndex);
+
+  // 重置頁碼當篩選條件改變時
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategory, selectedRegion]);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <div className="home-page">
@@ -104,12 +114,19 @@ const HomePage: React.FC = () => {
                     >
                       <div className="carousel-image-container">
                         <img 
-                          src={exhibition.image || 'https://source.unsplash.com/800x600/?exhibition,museum,art'} 
+                          src={exhibition.image || `${process.env.PUBLIC_URL}/C.jpg`} 
                           alt={exhibition.name}
                           className="carousel-image"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
-                            target.src = 'https://source.unsplash.com/800x600/?exhibition,museum,art';
+                            const defaultImage = `${process.env.PUBLIC_URL}/C.jpg`;
+                            if (target.src !== defaultImage) {
+                              target.src = defaultImage;
+                            } else {
+                              // 如果連預設圖片都失敗，使用純色背景
+                              target.style.display = 'none';
+                              target.parentElement!.style.backgroundColor = '#f0f0f0';
+                            }
                           }}
                         />
                         <div className="carousel-overlay">
@@ -141,7 +158,6 @@ const HomePage: React.FC = () => {
           </section>
 
           <section className="exhibitions-section">
-            <h2>展覽列表區</h2>
             <FilterBar
               selectedCategory={selectedCategory}
               selectedRegion={selectedRegion}
@@ -149,7 +165,7 @@ const HomePage: React.FC = () => {
               onRegionChange={setSelectedRegion}
             />
             <div className="exhibitions-grid">
-              {filteredExhibitions.map(exhibition => (
+              {currentExhibitions.map(exhibition => (
                 <ExhibitionCard 
                   key={exhibition.id} 
                   exhibition={exhibition} 
@@ -160,6 +176,15 @@ const HomePage: React.FC = () => {
               <div className="no-results">
                 <p>沒有符合條件的展覽</p>
               </div>
+            )}
+            {filteredExhibitions.length > 0 && (
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+                itemsPerPage={itemsPerPage}
+                totalItems={filteredExhibitions.length}
+              />
             )}
           </section>
         </div>

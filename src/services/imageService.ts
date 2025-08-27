@@ -1,81 +1,78 @@
-// 圖片服務 - 使用免費API或預設圖片
+// 圖片服務 - 使用穩定的圖片來源
 export const getExhibitionImage = (exhibitionName: string): string => {
-  // 使用 Unsplash API 取得相關圖片
-  const unsplashAPI = `https://source.unsplash.com/800x600/?`;
-  
-  // 根據展覽類型和名稱生成關鍵字
-  const getImageKeywords = (name: string): string => {
+  // 使用穩定的 Unsplash 直接連結避免 API 限制
+  const getImageByType = (name: string): string => {
     if (name.includes('藝術') || name.includes('美術') || name.includes('畫')) {
-      return 'art,painting,gallery';
+      return 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=600&fit=crop';
     }
     if (name.includes('科技') || name.includes('數位')) {
-      return 'technology,digital,innovation';
+      return 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop';
     }
     if (name.includes('文化') || name.includes('歷史')) {
-      return 'culture,museum,history';
+      return 'https://images.unsplash.com/photo-1566408669585-3ab02d4b5296?w=800&h=600&fit=crop';
     }
     if (name.includes('設計')) {
-      return 'design,creative,modern';
+      return 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop';
     }
     if (name.includes('自然')) {
-      return 'nature,botanical,organic';
+      return 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop';
     }
     if (name.includes('攝影')) {
-      return 'photography,camera,lens';
+      return 'https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=800&h=600&fit=crop';
     }
-    return 'exhibition,museum,gallery';
+    return 'https://images.unsplash.com/photo-1594736797933-d0a9e6f4b3f8?w=800&h=600&fit=crop';
   };
   
-  const keywords = getImageKeywords(exhibitionName);
-  return `${unsplashAPI}${keywords}`;
+  return getImageByType(exhibitionName);
 };
 
-// 為特定展覽提供圖片
+// 為特定展覽提供圖片 - 使用本地四張圖片
 export const getSpecificExhibitionImages = (): { [key: string]: string } => {
+  const baseUrl = process.env.PUBLIC_URL || '';
   return {
-    // 奧拉弗．埃利亞松：你的好奇旅程
-    '00001': 'https://source.unsplash.com/800x600/?art,installation,light',
+    // 奧拉弗．埃利亞松：你的好奇旅程 - 現代藝術裝置 (D.jpg 現代展覽空間)
+    '00001': `${baseUrl}/D.jpg`,
     
-    // 懷德樂美—倪蔣懷紀念展
-    '00002': 'https://source.unsplash.com/800x600/?watercolor,painting,art',
+    // 懷德樂美—倪蔣懷紀念展 - 傳統水彩畫展 (C.jpg 彩色藝術風格)
+    '00002': `${baseUrl}/C.jpg`,
     
-    // 碁人弈事—古代圍棋文化
-    '00003': 'https://source.unsplash.com/800x600/?go,board-game,traditional',
+    // 碁人弈事—古代圍棋文化 - 古代文化 (A.jpg 傳統建築風格)
+    '00003': `${baseUrl}/A.jpg`,
     
-    // 絕對．好字－院藏對聯選萃
-    '00004': 'https://source.unsplash.com/800x600/?calligraphy,chinese,brush',
+    // 絕對．好字－院藏對聯選萃 - 書法文物 (A.jpg 傳統建築風格)
+    '00004': `${baseUrl}/A.jpg`,
     
-    // 從印象派到現代主義─美國大都會博物館名作展
-    '00005': 'https://source.unsplash.com/800x600/?impressionism,museum,painting',
+    // 從印象派到現代主義─美國大都會博物館名作展 - 經典畫展 (C.jpg 彩色藝術風格)
+    '00005': `${baseUrl}/C.jpg`,
     
-    // 祀與戎：古代兵器攻略 - 等待圖片資源
-    '00008': '',
+    // 神聖藝術的當代回聲 - 宗教藝術 (A.jpg 傳統建築風格)
+    '00006': `${baseUrl}/A.jpg`,
     
-    // 愛硯成痴特展 - 等待圖片資源
-    '00009': '',
+    // 每個人心中都有一座夢幻島 - 色彩創作 (C.jpg 彩色藝術風格)
+    '00007': `${baseUrl}/C.jpg`,
     
-    // 噁の食物博物館 - 等待圖片資源
-    '00023': '',
+    // 祀與戎：古代兵器攻略 - 古代文物 (A.jpg 傳統建築風格)
+    '00008': `${baseUrl}/A.jpg`,
     
-    // TOMICA小汽車55週年博覽會 - 等待圖片資源
-    '00027': '',
+    // 愛硯成痴特展 - 文房用品工藝 (A.jpg 傳統建築風格)
+    '00009': `${baseUrl}/A.jpg`,
     
-    // Becoming Real｜設計的生成時刻｜2025年iF學生設計獎 - 等待圖片資源
-    '00032': '',
+    // 華麗魔法屋─故宮的洛可可珍藏 - 宮廷藝術 (C.jpg 彩色藝術風格)
+    '00010': `${baseUrl}/C.jpg`,
     
-    // 2024臺灣國際陶藝雙年展 - 等待圖片資源
-    '00035': '',
+    // 眾神降臨——沉浸故宮3.0數位展 - 數位科技 (B.jpg 抽象科技感)
+    '00013': `${baseUrl}/B.jpg`,
     
-    // 2025臺灣文博會 - 等待圖片資源
-    '00053': '',
+    // 噁の食物博物館 - 特色文化展 (D.jpg 現代展覽空間)
+    '00023': `${baseUrl}/D.jpg`,
     
-    // 航海王ONE PIECE歡樂派對嘉年華 - 等待圖片資源
-    '00068': '',
+    // 會動的浮世繪展 - 數位藝術 (B.jpg 抽象科技感)
+    '00025': `${baseUrl}/B.jpg`,
     
-    // 虎姑婆和他的朋友沉浸式遊戲場 - 等待圖片資源
-    '00072': '',
+    // TOMICA小汽車55週年博覽會 - 文創展覽 (D.jpg 現代展覽空間)
+    '00027': `${baseUrl}/D.jpg`,
     
-    // 森之市珈琲コーヒーと花物語・第三回 - 等待圖片資源
-    '00081': ''
+    // 波隆那世界插畫大獎展 - 插畫藝術 (C.jpg 彩色藝術風格)
+    '00031': `${baseUrl}/C.jpg`
   };
 };

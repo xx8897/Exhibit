@@ -83,15 +83,15 @@
   top: 0;
   left: 0;
   display: flex;
-  width: 500%;
+  width: 400%;
   height: 100%;
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .carousel-slide {
-  flex: 0 0 20%; /* 每個幻燈片占20%寬度 (100% / 5) */
-  min-width: 20%;
-  max-width: 20%;
+  flex: 0 0 25%; /* 每個幻燈片占25%寬度 (100% / 4) */
+  min-width: 25%;
+  max-width: 25%;
   position: relative;
   text-decoration: none;
   color: inherit;

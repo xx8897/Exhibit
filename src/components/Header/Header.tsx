@@ -11,10 +11,6 @@ const Header: React.FC = () => {
         </Link>
         <nav className="nav-menu">
           <Link to="/" className="nav-link">首頁</Link>
-          <Link to="/category/藝術與文化" className="nav-link">藝術與文化</Link>
-          <Link to="/category/科技與設計" className="nav-link">科技與設計</Link>
-          <Link to="/category/自然" className="nav-link">自然</Link>
-          <Link to="/category/其他" className="nav-link">其他</Link>
         </nav>
       </div>
     </header>

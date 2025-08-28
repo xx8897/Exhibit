@@ -15,8 +15,10 @@ const HomePage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(9); // 每頁顯示9個展覽
 
-  // 前五個展覽用於輪播
-  const carouselExhibitions = allExhibitions.slice(0, 5);
+  // 每個類別的第一個展覽用於輪播：藝術(ID:1)、科學教育(ID:81)、歷史文化(ID:128)、其他(ID:8)
+  const carouselExhibitions = allExhibitions.filter(exhibition => 
+    ['1', '81', '128', '8'].includes(exhibition.id)
+  );
   
 
   // 自動播放功能 - 每15秒切換
@@ -104,7 +106,7 @@ const HomePage: React.FC = () => {
               <div className="carousel-container">
                 <div 
                   className="carousel-wrapper"
-                  style={{ transform: `translateX(-${currentSlide * 20}%)` }}
+                  style={{ transform: `translateX(-${currentSlide * 25}%)` }}
                 >
                   {carouselExhibitions.map((exhibition, index) => (
                     <Link 
